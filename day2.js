@@ -45,7 +45,7 @@ function createArray() {
     return newArray;
 }
 
-/* console.log(createArray()); */
+console.log(createArray());
 
 
 
@@ -106,7 +106,7 @@ function GreateScore(arr) {
     return arr.filter((item) => item.scores > 85)
 }
 
-/* console.log(GreateScore(users)) */
+console.log(GreateScore(users))
 
 
 /* Write a function which addUser to the user array only if the user does not exist. */
@@ -129,3 +129,30 @@ function addNewUser(arr, userName) {
 console.log(addNewUser(users, "Rahul Rajput"))
 console.log(addNewUser(users, "Rahul Rajput"))
 
+/* Write a function which addUserSkill which can add skill to a user only if the user exist. */
+
+function addUserSkill(userName, skill) {
+    const getUser = users.findIndex((item) => item.name === userName);
+    if(getUser === -1) {
+        return 'User Does not exits'
+    }
+    users[getUser].skills.push(skill)
+    return users;
+    
+}
+console.log(addUserSkill('Thomas', 'Bootstrap'));
+console.log(addUserSkill('Rahul', 'Bootstrap'));
+
+/* Write a function which editUser if the user exist in the users array. */
+
+function editUser(userName, property, value) {
+    const getUser = users.findIndex((item) => item.name === userName);
+    if(getUser === -1) {
+        return 'User does not exits'
+    }
+    users[getUser][property] = value;
+    return users;
+}
+
+console.log(editUser('Thomas', 'age', 30))
+console.log(editUser('rahul', 'age', 30))
