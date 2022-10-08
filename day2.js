@@ -12,26 +12,26 @@ const countries = [
     'IRELAND',
     'JAPAN',
     'KENYA'
-  ]
-  /* createArrayOfArrays(countries)
+]
+/* createArrayOfArrays(countries)
 [
-  ['Albania', 'ALB', 7],
-  ['Bolivia', 'BOL', 7],
-  ['Canada', 'CAN', 6],
-  ['Denmark', 'DEN', 7],
-  ['Ethiopia', 'ETH', 8],
-  ['Finland', 'FIN', 7],
-  ['Germany', 'GER', 7],
-  ['Hungary', 'HUN', 7],
-  ['Ireland', 'IRE', 7],
-  ['Japan', 'JAP', 5],
-  ['Kenya', 'KEN', 5]
+['Albania', 'ALB', 7],
+['Bolivia', 'BOL', 7],
+['Canada', 'CAN', 6],
+['Denmark', 'DEN', 7],
+['Ethiopia', 'ETH', 8],
+['Finland', 'FIN', 7],
+['Germany', 'GER', 7],
+['Hungary', 'HUN', 7],
+['Ireland', 'IRE', 7],
+['Japan', 'JAP', 5],
+['Kenya', 'KEN', 5]
 ] */
 
 const newArray = []
 
 function createArray() {
-    for(let i = 0; i < countries.length; i++) {
+    for (let i = 0; i < countries.length; i++) {
         const createNewArray = [];
         createNewArray.push(countries[i]);
         let str = countries[i][0];
@@ -50,55 +50,55 @@ function createArray() {
 
 
 /*  2.	Write a function which filter users who has  scoresGreaterThan85,  
-	Write a function which addUser  to the user array only if the user does not exist.   
-	Write a function which addUserSkill which can add skill to a user only if the user exist.   
-	Write a function which editUser if the user exist in the users array.  
-	```js */
+    Write a function which addUser  to the user array only if the user does not exist.   
+    Write a function which addUserSkill which can add skill to a user only if the user exist.   
+    Write a function which editUser if the user exist in the users array.  
+    ```js */
 
-	const users = [
-	{
-		name:'Brook', 
-		scores:75,
-		skills:['HTM', 'CSS', 'JS'],
-		age:16
-	},
-	{
-		name:'Alex', 
-		scores:80,
-		skills:['HTM', 'CSS', 'JS'],
-		age:18
-	}, 
-	{
-		name:'David', 
-		scores:75,
-		skills:['HTM', 'CSS'],
-		age:22
-	}, 
-	{
-		name:'John', 
-		scores:85,
-		skills:['HTM'],
-		age:25
-	},
-	{
-		name:'Sara',
-		scores:95,
-		skills:['HTM', 'CSS', 'JS'],
-		age: 26
-	},
-	{
-		name:'Martha', 
-		scores:80,
-		skills:['HTM', 'CSS', 'JS'],
-		age:18
-	},
-	{
-		name:'Thomas',
-		scores:90,
-		skills:['HTM', 'CSS', 'JS'],
-		age:20
-	}
-	]
+const users = [
+    {
+        name: 'Brook',
+        scores: 75,
+        skills: ['HTM', 'CSS', 'JS'],
+        age: 16
+    },
+    {
+        name: 'Alex',
+        scores: 80,
+        skills: ['HTM', 'CSS', 'JS'],
+        age: 18
+    },
+    {
+        name: 'David',
+        scores: 75,
+        skills: ['HTM', 'CSS'],
+        age: 22
+    },
+    {
+        name: 'John',
+        scores: 85,
+        skills: ['HTM'],
+        age: 25
+    },
+    {
+        name: 'Sara',
+        scores: 95,
+        skills: ['HTM', 'CSS', 'JS'],
+        age: 26
+    },
+    {
+        name: 'Martha',
+        scores: 80,
+        skills: ['HTM', 'CSS', 'JS'],
+        age: 18
+    },
+    {
+        name: 'Thomas',
+        scores: 90,
+        skills: ['HTM', 'CSS', 'JS'],
+        age: 20
+    }
+]
 
 /* Write a function which filter users who has  scoresGreaterThan85 */
 
@@ -106,4 +106,26 @@ function GreateScore(arr) {
     return arr.filter((item) => item.scores > 85)
 }
 
-console.log(GreateScore(users))
+/* console.log(GreateScore(users)) */
+
+
+/* Write a function which addUser to the user array only if the user does not exist. */
+
+function addNewUser(arr, userName) {
+    const findUser = arr.filter((item) => item.name === userName);
+    if (findUser.length === 0) {
+        const newUser = {
+            name: userName,
+            scores: 90,
+            skills: ['HTML', 'CSS', 'JS'],
+            age: 20
+        };
+        arr.push(newUser);
+        return arr
+    }
+    return 'User Already Exist...'
+}
+
+console.log(addNewUser(users, "Rahul Rajput"))
+console.log(addNewUser(users, "Rahul Rajput"))
+
